@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sudanese Social Volunteer - Humanitarian aid, fundraising, and community support for Sudanese refugees and war victims">
+<title>Sudanese Social Volunteer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Casko:wght@400;700&family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: #1a1a1a; background: #fafafa; }
+a { text-decoration: none; color: inherit; }
+button { border: none; cursor: pointer; font-family: inherit; }
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+
+.animate-fadeIn { animation: fadeInUp 0.8s ease-out forwards; }
+.stat-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.stat-card:hover { transform: translateY(-8px); }
+.card-hover { transition: all 0.3s ease; }
+.card-hover:hover { transform: translateY(-6px); box-shadow: 0 12px 24px rgba(196, 30, 58, 0.15); }
+
+.icon-box { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(139, 20, 40, 0.1)); color: #c41e3a; font-size: 1.5rem; }
+
+.project-card { border: 2px solid #f0f0f0; padding: 1.8rem; border-radius: 12px; cursor: pointer; transition: all 0.3s; position: relative; background: white; }
+.project-card.selected { border-color: #c41e3a; background: #fff5f5; }
+.project-card:hover { border-color: #c41e3a; transform: translateY(-4px); }
+
+.progress-bar { width: 100%; height: 10px; background: #f0f0f0; border-radius: 10px; overflow: hidden; margin: 0.75rem 0; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, #c41e3a, #8b1428); transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 10px; }
+
+.story-card { border-radius: 12px; overflow: hidden; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s; }
+.story-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(196, 30, 58, 0.12); }
+.story-image { width: 100%; height: 280px; object-fit: cover; background: linear-gradient(135deg, #c41e3a20, #8b142820); }
+
+.testimonial { background: #fff5f5; padding: 2rem; border-radius: 12px; border-left: 5px solid #c41e3a; margin: 1.5rem 0; }
+.testimonial-author { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
+.testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #c41e3a, #8b1428); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; }
+
+.impact-stat { text-align: center; padding: 2rem 1rem; }
+.impact-stat-number { font-size: 2.5rem; font-weight: 700; color: #c41e3a; }
+.impact-stat-label { color: #666; font-size: 0.95rem; margin-top: 0.5rem; }
+
+.cta-button { padding: 1rem 2rem; background: linear-gradient(135deg, #c41e3a, #8b1428); color: white; font-weight: 600; border-radius: 8px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; }
+.cta-button:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(196, 30, 58, 0.3); }
+
+.hero-image { width: 100%; max-width: 500px; height: 350px; background: linear-gradient(135deg, rgba(196, 30, 58, 0.2), rgba(139, 20, 40, 0.1)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 5rem; animation: float 3s ease-in-out infinite; }
+</style>
+</helmet>
+
+<div style="display: flex; flex-direction: column; min-height: 100vh; background: #fafafa;">
+  <!-- Navigation -->
+  <nav style="display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 2rem; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100;">
+    <div style="font-size: 1.8rem; font-weight: 700; color: #c41e3a; font-family: 'Casko', sans-serif;"><i class="fas fa-hands-helping" style="margin-right: 0.5rem;"></i>SSV</div>
+    <div style="display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap;">
+      <a href="#home" style="font-weight: 500; color: #666; transition: all 0.3s;" style-hover="color: #c41e3a;">Home</a>
+      <a href="#stories" style="font-weight: 500; color: #666; transition: all 0.3s;" style-hover="color: #c41e3a;">Stories</a>
+      <a href="#projects" style="font-weight: 500; color: #666; transition: all 0.3s;" style-hover="color: #c41e3a;">Projects</a>
+      <a href="#donate" style="font-weight: 500; color: #666; transition: all 0.3s;" style-hover="color: #c41e3a;">Donate</a>
+      <select style="padding: 0.5rem 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: white; cursor: pointer;">
+        <option>🇩🇪 Deutsch</option>
+        <option>🇬🇧 English</option>
+        <option>🇸🇦 العربية</option>
+      </select>
+    </div>
+  </nav>
+
+  <!-- HERO with Emotional Hook -->
+  <section id="home" style="background: linear-gradient(135deg, #c41e3a 0%, #8b1428 100%); color: white; padding: 5rem 2rem; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: -40%; right: -10%; width: 500px; height: 500px; background: rgba(255,255,255,0.05); border-radius: 50%; animation: pulse 6s ease-in-out infinite;"></div>
+    
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 10;">
+      <div>
+        <h1 style="font-size: 3.2rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; font-family: 'Casko', sans-serif; animation: fadeInUp 0.8s ease-out;"><i class="fas fa-heart" style="margin-right: 0.5rem; animation: pulse 2s ease-in-out infinite;"></i>Every Life Matters</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.8; opacity: 0.95; animation: fadeInUp 0.8s ease-out 0.2s both;">In Sudan, 33.7 million people face humanitarian crisis. Women, children, and families are torn from their homes. Healthcare is collapsing. Schools are closed. But hope persists. Communities stand together. <strong>You can be part of their story.</strong></p>
+        <p style="font-size: 0.95rem; margin-bottom: 2.5rem; line-height: 1.7; opacity: 0.9; animation: fadeInUp 0.8s ease-out 0.3s both;">When you donate, you're not just giving money. You're restoring dignity. You're bringing medical care. You're opening schools. You're rebuilding futures.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease-out 0.4s both;">
+          <button class="cta-button"><i class="fas fa-hand-holding-heart"></i>Donate Now</button>
+          <button style="padding: 1rem 2rem; background: rgba(255,255,255,0.15); color: white; font-weight: 600; border-radius: 8px; border: 2px solid white; transition: all 0.3s; cursor: pointer;" style-hover="background: rgba(255,255,255,0.25);"><i class="fas fa-story" style="margin-right: 0.5rem;"></i>Read Stories</button>
+        </div>
+      </div>
+      <div class="hero-image"><i class="fas fa-people-group"></i></div>
+    </div>
+  </section>
+
+  <!-- Personal Stories Section -->
+  <section id="stories" style="background: white; padding: 5rem 2rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1rem; color: #1a1a1a; animation: fadeInUp 0.8s ease-out;"><i class="fas fa-quote-left" style="margin-right: 0.75rem; color: #c41e3a;"></i>Real Stories. Real Impact.</h2>
+      <p style="font-size: 1.1rem; color: #666; margin-bottom: 3rem; max-width: 700px; animation: fadeInUp 0.8s ease-out 0.1s both;">These are the voices of people we've helped. Names and identifying details are changed to protect their privacy and safety.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem;">
+        <!-- Story 1: Fatima -->
+        <div class="story-card" style="animation: fadeInUp 0.8s ease-out 0.1s both;">
+          <div class="hero-image" style="height: 280px; background: linear-gradient(135deg, #ff6b6b, #ee5a6f); color: white;"><i class="fas fa-female"></i></div>
+          <div style="padding: 2rem;">
+            <h3 style="font-size: 1.3rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.75rem;">Fatima: "I Found Hope Again"</h3>
+            <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">"When the war started, I lost everything—my home, my job, my sense of safety. SSV's legal team helped me navigate asylum. Healthcare workers treated my daughter's malnutrition. Teachers are now giving my children hope for a future. I am no longer invisible."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">F</div>
+              <div>
+                <p style="font-weight: 600; color: #1a1a1a;">Fatima*</p>
+                <p style="font-size: 0.85rem; color: #999;">North Darfur → Germany</p>
+              </div>
+            </div>
+            <p style="font-size: 0.8rem; color: #c41e3a; margin-top: 1rem;"><i class="fas fa-hand-holding-heart" style="margin-right: 0.3rem;"></i><strong>Impact:</strong> Legal support, medical care, education</p>
+          </div>
+        </div>
+
+        <!-- Story 2: Ahmed -->
+        <div class="story-card" style="animation: fadeInUp 0.8s ease-out 0.2s both;">
+          <div class="hero-image" style="height: 280px; background: linear-gradient(135deg, #4ecdc4, #44a08d); color: white;"><i class="fas fa-male"></i></div>
+          <div style="padding: 2rem;">
+            <h3 style="font-size: 1.3rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.75rem;">Ahmed: "My Skills Are Worth Something"</h3>
+            <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">"I was an engineer in Sudan. After displacement, I felt worthless. SSV's vocational training recognized my abilities, improved my German, and connected me with employers. Now I'm working. My family has stability. My children see their father as more than a refugee."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">A</div>
+              <div>
+                <p style="font-weight: 600; color: #1a1a1a;">Ahmed*</p>
+                <p style="font-size: 0.85rem; color: #999;">East Sudan → Germany</p>
+              </div>
+            </div>
+            <p style="font-size: 0.8rem; color: #c41e3a; margin-top: 1rem;"><i class="fas fa-briefcase" style="margin-right: 0.3rem;"></i><strong>Impact:</strong> Skills training, job placement, dignity</p>
+          </div>
+        </div>
+
+        <!-- Story 3: Zara -->
+        <div class="story-card" style="animation: fadeInUp 0.8s ease-out 0.3s both;">
+          <div class="hero-image" style="height: 280px; background: linear-gradient(135deg, #f093fb, #f5576c); color: white;"><i class="fas fa-child"></i></div>
+          <div style="padding: 2rem;">
+            <h3 style="font-size: 1.3rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.75rem;">Zara: "School Made Me Dream Again"</h3>
+            <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">"I was 12 when we fled. Schools were destroyed. I thought my education was over. SSV's informal schooling program changed that. Now I'm learning, laughing with friends again. My teacher says I can go to university. For the first time in years, I believe it."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">Z</div>
+              <div>
+                <p style="font-weight: 600; color: #1a1a1a;">Zara*</p>
+                <p style="font-size: 0.85rem; color: #999;">Khartoum → Germany (age 12)</p>
+              </div>
+            </div>
+            <p style="font-size: 0.8rem; color: #c41e3a; margin-top: 1rem;"><i class="fas fa-book" style="margin-right: 0.3rem;"></i><strong>Impact:</strong> Education, hope, future</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Crisis - Compassionate Framing -->
+  <section style="background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%); padding: 5rem 2rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 3rem; color: #1a1a1a; animation: fadeInUp 0.8s ease-out;"><i class="fas fa-exclamation-triangle" style="margin-right: 0.75rem; color: #c41e3a;"></i>The Scope of the Crisis</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+        <div class="impact-stat" style="animation: fadeInUp 0.8s ease-out 0.1s both;">
+          <div class="impact-stat-number">33.7M</div>
+          <div class="impact-stat-label">People Need Urgent Help<br><span style="font-size: 0.85rem; opacity: 0.8;">2 out of 3 Sudanese</span></div>
+        </div>
+        <div class="impact-stat" style="animation: fadeInUp 0.8s ease-out 0.2s both;">
+          <div class="impact-stat-number">9.5M</div>
+          <div class="impact-stat-label">Internally Displaced<br><span style="font-size: 0.85rem; opacity: 0.8;">Torn from homes</span></div>
+        </div>
+        <div class="impact-stat" style="animation: fadeInUp 0.8s ease-out 0.3s both;">
+          <div class="impact-stat-number">21M</div>
+          <div class="impact-stat-label">Face Food Insecurity<br><span style="font-size: 0.85rem; opacity: 0.8;">At risk of starvation</span></div>
+        </div>
+        <div class="impact-stat" style="animation: fadeInUp 0.8s ease-out 0.4s both;">
+          <div class="impact-stat-number">17.3M</div>
+          <div class="impact-stat-label">Children in Crisis<br><span style="font-size: 0.85rem; opacity: 0.8;">Future uncertain</span></div>
+        </div>
+      </div>
+
+      <div style="background: white; padding: 2.5rem; border-radius: 12px; border-left: 5px solid #c41e3a; animation: fadeInUp 0.8s ease-out 0.2s both;">
+        <h3 style="font-size: 1.3rem; font-weight: 600; color: #c41e3a; margin-bottom: 1rem;"><i class="fas fa-heartbeat" style="margin-right: 0.5rem;"></i>This Is Not About Numbers</h3>
+        <p style="color: #666; line-height: 1.8; margin-bottom: 1rem;">Behind every statistic is a person. A mother worried about feeding her children. A father who lost his job and identity. A child whose dreams were interrupted by violence. A grandmother caring for grandchildren alone.</p>
+        <p style="color: #666; line-height: 1.8;">They are resilient. They are strong. But they cannot do this alone. They need clean water. They need medicine. They need education. They need to know someone cares.</p>
+        <p style="color: #666; line-height: 1.8; margin-top: 1rem; font-weight: 500; color: #c41e3a;">When you donate to SSV, you're saying: "I see you. I hear you. Your life matters, and I'm here."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" style="background: white; padding: 5rem 2rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1rem; color: #1a1a1a; animation: fadeInUp 0.8s ease-out;"><i class="fas fa-bullseye" style="margin-right: 0.75rem; color: #c41e3a;"></i>Where Your Donation Goes</h2>
+      <p style="font-size: 1.1rem; color: #666; margin-bottom: 3rem; animation: fadeInUp 0.8s ease-out 0.1s both;">Six targeted programs. Direct impact. 95% of funds reach beneficiaries.</p>
+
+      <div style="display: grid; template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <!-- Project 1 -->
+        <div class="project-card" style="animation: fadeInUp 0.8s ease-out 0.1s both;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div class="icon-box" style="font-size: 2rem;"><i class="fas fa-hospital"></i></div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #c41e3a;">Emergency Medical</h3>
+          </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 1.5rem;"><strong>What we do:</strong> Deploy mobile health clinics to remote camps. Treat acute malnutrition. Provide mental health counseling for trauma survivors. Distribute life-saving medicines.</p>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem; color: #666;"><span style="font-weight: 500;">€85K / €120K</span><span style="color: #c41e3a; font-weight: 600;">71%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 71%;"></div></div>
+          </div>
+          <p style="font-size: 0.85rem; color: #999;"><i class="fas fa-users" style="margin-right: 0.3rem;"></i>340+ beneficiaries | 12 camps supported</p>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" style="animation: fadeInUp 0.8s ease-out 0.2s both;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div class="icon-box" style="font-size: 2rem;"><i class="fas fa-book"></i></div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #c41e3a;">Education & Skills</h3>
+          </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 1.5rem;"><strong>What we do:</strong> Operate informal schools for displaced children. Teach German and vocational skills. Connect youth to job opportunities. Restore hope through learning.</p>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem; color: #666;"><span style="font-weight: 500;">€62K / €150K</span><span style="color: #c41e3a; font-weight: 600;">41%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 41%;"></div></div>
+          </div>
+          <p style="font-size: 0.85rem; color: #999;"><i class="fas fa-graduation-cap" style="margin-right: 0.3rem;"></i>280 children enrolled | Future-focused</p>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" style="animation: fadeInUp 0.8s ease-out 0.3s both;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div class="icon-box" style="font-size: 2rem;"><i class="fas fa-water"></i></div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #c41e3a;">WASH</h3>
+          </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 1.5rem;"><strong>What we do:</strong> Install water systems. Prevent cholera through WASH education. Build latrines. Distribute hygiene kits. Clean water = life.</p>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem; color: #666;"><span style="font-weight: 500;">€95K / €180K</span><span style="color: #c41e3a; font-weight: 600;">53%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 53%;"></div></div>
+          </div>
+          <p style="font-size: 0.85rem; color: #999;"><i class="fas fa-droplet" style="margin-right: 0.3rem;"></i>15M+ people served | Cholera prevented</p>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card" style="animation: fadeInUp 0.8s ease-out 0.4s both;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div class="icon-box" style="font-size: 2rem;"><i class="fas fa-utensils"></i></div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #c41e3a;">Emergency Food</h3>
+          </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 1.5rem;"><strong>What we do:</strong> Distribute food parcels to starving families. Treat severe malnutrition in children. Combat famine with monthly aid. Fill hungry bellies.</p>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem; color: #666;"><span style="font-weight: 500;">€110K / €200K</span><span style="color: #c41e3a; font-weight: 600;">55%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 55%;"></div></div>
+          </div>
+          <p style="font-size: 0.85rem; color: #999;"><i class="fas fa-drumstick-bite" style="margin-right: 0.3rem;"></i>21M at risk | Nutrition restored</p>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card" style="animation: fadeInUp 0.8s ease-out 0.5s both;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div class="icon-box" style="font-size: 2rem;"><i class="fas fa-gavel"></i></div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #c41e3a;">Legal Aid</h3>
+          </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 1.5rem;"><strong>What we do:</strong> Provide free legal counsel for asylum & refugee status. Reunite families. Protect human rights. Navigate bureaucracy together.</p>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem; color: #666;"><span style="font-weight: 500;">€48K / €100K</span><span style="color: #c41e3a; font-weight: 600;">48%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 48%;"></div></div>
+          </div>
+          <p style="font-size: 0.85rem; color: #999;"><i class="fas fa-briefcase" style="margin-right: 0.3rem;"></i>1,200+ cases | Families reunited</p>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card" style="animation: fadeInUp 0.8s ease-out 0.6s both;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div class="icon-box" style="font-size: 2rem;"><i class="fas fa-handshake"></i></div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #c41e3a;">Community Support</h3>
+          </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 1.5rem;"><strong>What we do:</strong> Create safe spaces for healing. Peer mentorship. Cultural events. Rebuild trust. Foster community resilience.</p>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem; color: #666;"><span style="font-weight: 500;">€55K / €80K</span><span style="color: #c41e3a; font-weight: 600;">69%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 69%;"></div></div>
+          </div>
+          <p style="font-size: 0.85rem; color: #999;"><i class="fas fa-heart" style="margin-right: 0.3rem;"></i>3.5M+ reached | Healing happens</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section id="donate" style="background: linear-gradient(135deg, #fff5f5 0%, #ffebeb 100%); padding: 5rem 2rem;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1.5rem; color: #1a1a1a; animation: fadeInUp 0.8s ease-out;"><i class="fas fa-heart" style="margin-right: 0.75rem; color: #c41e3a;"></i>Your Donation Changes Lives</h2>
+      <p style="font-size: 1.1rem; color: #666; margin-bottom: 2rem; animation: fadeInUp 0.8s ease-out 0.1s both;"><strong>Choose an amount. Choose a project. Make an impact.</strong> Every euro goes directly to Sudanese families in crisis.</p>
+
+      <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); animation: fadeInUp 0.8s ease-out 0.2s both;">
+        <h3 style="font-size: 1.3rem; font-weight: 600; color: #1a1a1a; margin-bottom: 1.5rem;"><i class="fas fa-euro-sign" style="margin-right: 0.5rem; color: #c41e3a;"></i>What Your Donation Does</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+          <div style="padding: 1.5rem; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #c41e3a;">
+            <p style="font-size: 2rem; font-weight: 700; color: #c41e3a; margin-bottom: 0.5rem;">€25</p>
+            <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-utensils" style="margin-right: 0.3rem; color: #c41e3a;"></i>Feeds a family for 1 week</p>
+          </div>
+          <div style="padding: 1.5rem; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #c41e3a;">
+            <p style="font-size: 2rem; font-weight: 700; color: #c41e3a; margin-bottom: 0.5rem;">€75</p>
+            <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-stethoscope" style="margin-right: 0.3rem; color: #c41e3a;"></i>Medical treatment for 1 child</p>
+          </div>
+          <div style="padding: 1.5rem; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #c41e3a;">
+            <p style="font-size: 2rem; font-weight: 700; color: #c41e3a; margin-bottom: 0.5rem;">€150</p>
+            <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-book-open" style="margin-right: 0.3rem; color: #c41e3a;"></i>School supplies for 5 students</p>
+          </div>
+          <div style="padding: 1.5rem; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #c41e3a;">
+            <p style="font-size: 2rem; font-weight: 700; color: #c41e3a; margin-bottom: 0.5rem;">€250</p>
+            <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-droplet" style="margin-right: 0.3rem; color: #c41e3a;"></i>Clean water access for 20 people</p>
+          </div>
+          <div style="padding: 1.5rem; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #c41e3a;">
+            <p style="font-size: 2rem; font-weight: 700; color: #c41e3a; margin-bottom: 0.5rem;">€500</p>
+            <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-graduation-cap" style="margin-right: 0.3rem; color: #c41e3a;"></i>3-month vocational training</p>
+          </div>
+          <div style="padding: 1.5rem; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #c41e3a;">
+            <p style="font-size: 2rem; font-weight: 700; color: #c41e3a; margin-bottom: 0.5rem;">€1000+</p>
+            <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-heart" style="margin-right: 0.3rem; color: #c41e3a;"></i>Transform a family's future</p>
+          </div>
+        </div>
+
+        <button class="cta-button" style="width: 100%; justify-content: center; padding: 1.5rem; font-size: 1.1rem;"><i class="fas fa-lock"></i>Donate Securely Now</button>
+      </div>
+
+      <div style="background: white; padding: 2rem; border-radius: 12px; margin-top: 2rem; border: 2px solid #c41e3a; animation: fadeInUp 0.8s ease-out 0.3s both;">
+        <p style="color: #666; line-height: 1.8; text-align: center;"><i class="fas fa-shield-alt" style="margin-right: 0.5rem; color: #c41e3a;"></i><strong>100% Secure.</strong> Your payment is encrypted. <strong>100% Transparent.</strong> You receive a receipt and impact report. <strong>Tax Deductible.</strong> In Germany.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS & IMPACT -->
+  <section style="background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%); padding: 5rem 2rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 3rem; color: #1a1a1a; animation: fadeInUp 0.8s ease-out;"><i class="fas fa-newspaper" style="margin-right: 0.75rem; color: #c41e3a;"></i>Latest News & Updates</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <!-- News Card 1 -->
+        <div class="news-card" style="overflow: hidden; animation: fadeInUp 0.8s ease-out 0.1s both;">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=300&fit=crop" alt="Medical emergency response" style="width: 100%; height: 240px; object-fit: cover; background: linear-gradient(135deg, #c41e3a20, #8b142820);">
+          <div style="padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+              <p style="font-size: 0.75rem; color: #c41e3a; font-weight: 700;">📅 Today</p>
+              <p style="font-size: 0.7rem; color: #999; font-weight: 600;">UN OCHA</p>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.75rem; line-height: 1.5;">Sudan Humanitarian Crisis Update - Medical Teams Expand</h3>
+            <p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">Mobile health clinics now serving 15 additional displacement camps with critical medical supplies and emergency care.</p>
+            <button style="color: #c41e3a; font-weight: 600; font-size: 0.85rem; transition: all 0.3s; cursor: pointer; background: none; border: none; padding: 0;" style-hover="transform: translateX(4px);"><i class="fas fa-external-link-alt" style="margin-right: 0.3rem;"></i>Read More →</button>
+          </div>
+        </div>
+
+        <!-- News Card 2 -->
+        <div class="news-card" style="overflow: hidden; animation: fadeInUp 0.8s ease-out 0.2s both;">
+          <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=500&h=300&fit=crop" alt="Education and learning" style="width: 100%; height: 240px; object-fit: cover; background: linear-gradient(135deg, #c41e3a20, #8b142820);">
+          <div style="padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+              <p style="font-size: 0.75rem; color: #c41e3a; font-weight: 700;">📅 Yesterday</p>
+              <p style="font-size: 0.7rem; color: #999; font-weight: 600;">SSV Report</p>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.75rem; line-height: 1.5;">Education Program Reaches 280 Displaced Children</h3>
+            <p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">Informal schooling initiative launched with volunteer teachers supporting continuity of education for displaced youth in camps.</p>
+            <button style="color: #c41e3a; font-weight: 600; font-size: 0.85rem; transition: all 0.3s; cursor: pointer; background: none; border: none; padding: 0;" style-hover="transform: translateX(4px);"><i class="fas fa-external-link-alt" style="margin-right: 0.3rem;"></i>Read More →</button>
+          </div>
+        </div>
+
+        <!-- News Card 3 -->
+        <div class="news-card" style="overflow: hidden; animation: fadeInUp 0.8s ease-out 0.3s both;">
+          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=500&h=300&fit=crop" alt="Clean water and sanitation" style="width: 100%; height: 240px; object-fit: cover; background: linear-gradient(135deg, #c41e3a20, #8b142820);">
+          <div style="padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+              <p style="font-size: 0.75rem; color: #c41e3a; font-weight: 700;">📅 3 days ago</p>
+              <p style="font-size: 0.7rem; color: #999; font-weight: 600;">WHO</p>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.75rem; line-height: 1.5;">Clean Water Access Initiative Saves Lives</h3>
+            <p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">New WASH infrastructure prevents cholera outbreak in Greater Darfur. 15 million people now have access to safe drinking water.</p>
+            <button style="color: #c41e3a; font-weight: 600; font-size: 0.85rem; transition: all 0.3s; cursor: pointer; background: none; border: none; padding: 0;" style-hover="transform: translateX(4px);"><i class="fas fa-external-link-alt" style="margin-right: 0.3rem;"></i>Read More →</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem; animation: fadeInUp 0.8s ease-out;">
+        <p style="color: #666; margin-bottom: 1rem;"><i class="fas fa-info-circle" style="margin-right: 0.5rem; color: #c41e3a;"></i>News updates pull from trusted humanitarian sources daily.</p>
+        <button class="cta-button"><i class="fas fa-rss" style="margin-right: 0.5rem;"></i>Subscribe to Updates</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #1a1a1a; color: white; padding: 3rem 2rem; text-align: center; margin-top: auto;">
+    <p style="margin-bottom: 1.5rem;"><i class="fas fa-heart" style="color: #c41e3a; margin-right: 0.5rem;"></i><strong>Sudanese Social Volunteer</strong></p>
+    <p style="margin-bottom: 2rem; opacity: 0.8;">Transforming crisis into hope. One life at a time.</p>
+    <div style="display: flex; justify-content: center; gap: 1.5rem; font-size: 1.2rem; margin-bottom: 1.5rem;">
+      <a href="#" style="color: #aaa; transition: all 0.3s;" style-hover="color: #c41e3a;"><i class="fab fa-facebook"></i></a>
+      <a href="#" style="color: #aaa; transition: all 0.3s;" style-hover="color: #c41e3a;"><i class="fab fa-twitter"></i></a>
+      <a href="#" style="color: #aaa; transition: all 0.3s;" style-hover="color: #c41e3a;"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p style="font-size: 0.85rem; opacity: 0.7;">&copy; 2026 SSV. Registered nonprofit. All rights reserved.</p>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: &quot;1200px&quot;, &quot;height&quot;: &quot;900px&quot;}}">
+class Component extends DCLogic {
+  state = { language: 'en', selectedProject: null };
+
+  renderVals() {
+    return { 
+      language: this.state.language
+    };
+  }
+}
+
+</script>
+</body>
+</html>

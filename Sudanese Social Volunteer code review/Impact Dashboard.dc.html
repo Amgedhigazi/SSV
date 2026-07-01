@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SSV Impact Dashboard - Real-time metrics, beneficiary stories, and program outcomes.">
+<title>Impact Dashboard - SSV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Casko:wght@400;700&family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: #1a1a1a; background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%); }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+* { animation-fill-mode: forwards; }
+.metric-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s; }
+.metric-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(196, 30, 58, 0.15); }
+.big-number { font-size: 3rem; font-weight: 700; color: #c41e3a; font-family: 'Casko', sans-serif; line-height: 1; }
+.big-label { color: #666; font-size: 0.95rem; margin-top: 0.75rem; line-height: 1.5; }
+.impact-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+.program-card { background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.status-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+.badge-active { background: #e8f4f8; color: #0284c7; }
+.badge-growing { background: #f0fdf4; color: #16a34a; }
+</style>
+</helmet>
+
+<div style="min-height: 100vh; padding: 3rem 2rem; background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);">
+  <div style="max-width: 1400px; margin: 0 auto;">
+    <!-- Header -->
+    <div style="margin-bottom: 3rem; animation: fadeInUp 0.8s ease-out;">
+      <h1 style="font-size: 2.8rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem; font-family: 'Casko', sans-serif;"><i class="fas fa-chart-line" style="color: #c41e3a; margin-right: 0.5rem;"></i>Impact Dashboard 2025</h1>
+      <p style="font-size: 1.1rem; color: #666; margin-bottom: 1rem;">Real-time metrics. Real lives changed. Transparent accountability.</p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.9rem;">
+        <span style="background: #fff5f5; color: #c41e3a; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600;"><i class="fas fa-sync-alt" style="margin-right: 0.3rem;"></i>Last updated: Today</span>
+        <span style="background: white; color: #666; padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid #eee;"><i class="fas fa-globe" style="margin-right: 0.3rem;"></i>Sudan + 18 countries</span>
+      </div>
+    </div>
+
+    <!-- TOP KPIs -->
+    <section style="margin-bottom: 4rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a; margin-bottom: 1.5rem;"><i class="fas fa-star" style="color: #c41e3a; margin-right: 0.5rem;"></i>Key Impact Indicators</h2>
+      <div class="impact-row">
+        <div class="metric-card" style="animation: fadeInUp 0.8s ease-out 0.1s both;">
+          <p style="color: #999; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem;"><i class="fas fa-heart" style="color: #c41e3a; margin-right: 0.3rem;"></i>Total Lives Impacted</p>
+          <div class="big-number">38.2M</div>
+          <p class="big-label">people served across all programs</p>
+        </div>
+
+        <div class="metric-card" style="animation: fadeInUp 0.8s ease-out 0.2s both;">
+          <p style="color: #999; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem;"><i class="fas fa-people-group" style="color: #c41e3a; margin-right: 0.3rem;"></i>Direct Beneficiaries</p>
+          <div class="big-number">1.2M</div>
+          <p class="big-label">individuals with direct contact & services</p>
+        </div>
+
+        <div class="metric-card" style="animation: fadeInUp 0.8s ease-out 0.3s both;">
+          <p style="color: #999; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem;"><i class="fas fa-hand-holding-heart" style="color: #c41e3a; margin-right: 0.3rem;"></i>2025 Investment</p>
+          <div class="big-number">€648K</div>
+          <p class="big-label">deployed to on-ground programs (95%)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAM PERFORMANCE -->
+    <section style="margin-bottom: 4rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a; margin-bottom: 1.5rem;"><i class="fas fa-briefcase" style="color: #c41e3a; margin-right: 0.5rem;"></i>Program Performance</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <!-- Medical -->
+        <div class="program-card" style="animation: fadeInUp 0.8s ease-out 0.1s both;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 600;"><i class="fas fa-hospital" style="color: #c41e3a; margin-right: 0.5rem;"></i>Medical</h3>
+            <span class="status-badge badge-active">ACTIVE</span>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+              <span style="font-weight: 600;">4,200 treated</span>
+              <span style="color: #c41e3a; font-weight: 600;">71%</span>
+            </div>
+            <div style="height: 8px; background: #f0f0f0; border-radius: 4px; overflow: hidden;">
+              <div style="height: 100%; width: 71%; background: linear-gradient(90deg, #c41e3a, #8b1428);"></div>
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; color: #666;">Malaria: 2,847 | Malnutrition: 687</p>
+        </div>
+
+        <!-- Education -->
+        <div class="program-card" style="animation: fadeInUp 0.8s ease-out 0.2s both;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 600;"><i class="fas fa-book" style="color: #c41e3a; margin-right: 0.5rem;"></i>Education</h3>
+            <span class="status-badge badge-growing">GROWING</span>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+              <span style="font-weight: 600;">487 students</span>
+              <span style="color: #c41e3a; font-weight: 600;">58%</span>
+            </div>
+            <div style="height: 8px; background: #f0f0f0; border-radius: 4px; overflow: hidden;">
+              <div style="height: 100%; width: 58%; background: linear-gradient(90deg, #c41e3a, #8b1428);"></div>
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; color: #666;">Employed: 42 | Graduation: 94%</p>
+        </div>
+
+        <!-- WASH -->
+        <div class="program-card" style="animation: fadeInUp 0.8s ease-out 0.3s both;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 600;"><i class="fas fa-water" style="color: #c41e3a; margin-right: 0.5rem;"></i>WASH</h3>
+            <span class="status-badge" style="background: #fef3c7; color: #d97706;">ON-TARGET</span>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+              <span style="font-weight: 600;">18.2M served</span>
+              <span style="color: #c41e3a; font-weight: 600;">65%</span>
+            </div>
+            <div style="height: 8px; background: #f0f0f0; border-radius: 4px; overflow: hidden;">
+              <div style="height: 100%; width: 65%; background: linear-gradient(90deg, #c41e3a, #8b1428);"></div>
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; color: #666;">Systems: 22 | Functionality: 94%</p>
+        </div>
+
+        <!-- Food -->
+        <div class="program-card" style="animation: fadeInUp 0.8s ease-out 0.4s both;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 600;"><i class="fas fa-drumstick-bite" style="color: #c41e3a; margin-right: 0.5rem;"></i>Food Security</h3>
+            <span class="status-badge badge-growing">SCALING</span>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+              <span style="font-weight: 600;">31,200 people</span>
+              <span style="color: #c41e3a; font-weight: 600;">60%</span>
+            </div>
+            <div style="height: 8px; background: #f0f0f0; border-radius: 4px; overflow: hidden;">
+              <div style="height: 100%; width: 60%; background: linear-gradient(90deg, #c41e3a, #8b1428);"></div>
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; color: #666;">Families: 8,400 | Cycles: 12/year</p>
+        </div>
+
+        <!-- Legal -->
+        <div class="program-card" style="animation: fadeInUp 0.8s ease-out 0.5s both;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 600;"><i class="fas fa-gavel" style="color: #c41e3a; margin-right: 0.5rem;"></i>Legal</h3>
+            <span class="status-badge badge-active">STRONG</span>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+              <span style="font-weight: 600;">1,847 active</span>
+              <span style="color: #c41e3a; font-weight: 600;">56%</span>
+            </div>
+            <div style="height: 8px; background: #f0f0f0; border-radius: 4px; overflow: hidden;">
+              <div style="height: 100%; width: 56%; background: linear-gradient(90deg, #c41e3a, #8b1428);"></div>
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; color: #666;">Approved: 623 | Success: 89%</p>
+        </div>
+
+        <!-- Community -->
+        <div class="program-card" style="animation: fadeInUp 0.8s ease-out 0.6s both;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 600;"><i class="fas fa-heart" style="color: #c41e3a; margin-right: 0.5rem;"></i>Community</h3>
+            <span class="status-badge badge-growing">EXPANDING</span>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+              <span style="font-weight: 600;">5.2M reached</span>
+              <span style="color: #c41e3a; font-weight: 600;">66%</span>
+            </div>
+            <div style="height: 8px; background: #f0f0f0; border-radius: 4px; overflow: hidden;">
+              <div style="height: 100%; width: 66%; background: linear-gradient(90deg, #c41e3a, #8b1428);"></div>
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; color: #666;">Peer leaders: 340 | Countries: 18</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFICIARY STORIES -->
+    <section style="margin-bottom: 4rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a; margin-bottom: 1.5rem;"><i class="fas fa-quote-left" style="color: #c41e3a; margin-right: 0.5rem;"></i>Beneficiary Stories</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <!-- Fatima -->
+        <div class="metric-card" style="animation: fadeInUp 0.8s ease-out 0.1s both;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #c41e3a, #8b1428); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">👩</div>
+            <div>
+              <h4 style="font-weight: 600;">Fatima Hassan</h4>
+              <p style="font-size: 0.85rem; color: #999;">Khartoum</p>
+            </div>
+          </div>
+          <p style="color: #666; line-height: 1.7; font-size: 0.9rem; font-style: italic; margin-bottom: 1rem;">"My children were malnourished. SSV's medical clinic treated my family, food program fed us, education center teaches my kids. I have hope again."</p>
+          <div style="display: flex; gap: 1rem; padding-top: 1rem; border-top: 1px solid #f0f0f0;">
+            <span style="font-size: 0.8rem; color: #999;"><strong>Program:</strong> Medical + Food</span>
+            <span style="font-size: 0.8rem; color: #999;"><strong>Impact:</strong> 8 months</span>
+          </div>
+        </div>
+
+        <!-- Ahmed -->
+        <div class="metric-card" style="animation: fadeInUp 0.8s ease-out 0.2s both;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #c41e3a, #8b1428); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">👨</div>
+            <div>
+              <h4 style="font-weight: 600;">Ahmed Osman</h4>
+              <p style="font-size: 0.85rem; color: #999;">Darfur → Berlin</p>
+            </div>
+          </div>
+          <p style="color: #666; line-height: 1.7; font-size: 0.9rem; font-style: italic; margin-bottom: 1rem;">"Education program taught me German and welding. Now I work in Berlin and support my family back home. Education saved my life."</p>
+          <div style="display: flex; gap: 1rem; padding-top: 1rem; border-top: 1px solid #f0f0f0;">
+            <span style="font-size: 0.8rem; color: #999;"><strong>Program:</strong> Education</span>
+            <span style="font-size: 0.8rem; color: #999;"><strong>Status:</strong> Employed</span>
+          </div>
+        </div>
+
+        <!-- Zara -->
+        <div class="metric-card" style="animation: fadeInUp 0.8s ease-out 0.3s both;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #c41e3a, #8b1428); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">👧</div>
+            <div>
+              <h4 style="font-weight: 600;">Zara (age 9)</h4>
+              <p style="font-size: 0.85rem; color: #999;">South Darfur</p>
+            </div>
+          </div>
+          <p style="color: #666; line-height: 1.7; font-size: 0.9rem; font-style: italic; margin-bottom: 1rem;">"Before SSV, I didn't go to school. Now I'm in Grade 3 and want to be a doctor. Teachers care. My dream is alive again."</p>
+          <div style="display: flex; gap: 1rem; padding-top: 1rem; border-top: 1px solid #f0f0f0;">
+            <span style="font-size: 0.8rem; color: #999;"><strong>Program:</strong> School + Medical</span>
+            <span style="font-size: 0.8rem; color: #999;"><strong>Attendance:</strong> 98%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUARTERLY TRENDS -->
+    <section>
+      <h2 style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a; margin-bottom: 1.5rem;"><i class="fas fa-chart-line" style="color: #c41e3a; margin-right: 0.5rem;"></i>Growth Trajectory 2025</h2>
+      
+      <div class="metric-card" style="animation: fadeInUp 0.8s ease-out 0.1s both;">
+        <div style="display: flex; align-items: flex-end; gap: 1.5rem; padding: 2rem 0; height: 280px;">
+          <div style="flex: 1; text-align: center;">
+            <div style="height: 140px; background: linear-gradient(180deg, #c41e3a 0%, #8b1428 100%); border-radius: 8px 8px 0 0; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;"><p style="color: white; font-weight: 700;">Q1</p></div>
+            <p style="font-size: 0.9rem; font-weight: 600; color: #1a1a1a;">€142K</p>
+            <p style="font-size: 0.8rem; color: #999;">3.8M people</p>
+          </div>
+          <div style="flex: 1; text-align: center;">
+            <div style="height: 180px; background: linear-gradient(180deg, #c41e3a 0%, #8b1428 100%); border-radius: 8px 8px 0 0; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;"><p style="color: white; font-weight: 700;">Q2</p></div>
+            <p style="font-size: 0.9rem; font-weight: 600; color: #1a1a1a;">€198K</p>
+            <p style="font-size: 0.8rem; color: #999;">4.2M people</p>
+          </div>
+          <div style="flex: 1; text-align: center;">
+            <div style="height: 210px; background: linear-gradient(180deg, #c41e3a 0%, #8b1428 100%); border-radius: 8px 8px 0 0; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 16px rgba(196, 30, 58, 0.2);"><p style="color: white; font-weight: 700;">Q3*</p></div>
+            <p style="font-size: 0.9rem; font-weight: 600; color: #1a1a1a;">€308K</p>
+            <p style="font-size: 0.8rem; color: #999;">4.8M people</p>
+          </div>
+          <div style="flex: 1; text-align: center; opacity: 0.6;">
+            <div style="height: 240px; background: linear-gradient(180deg, #c41e3a20 0%, #8b142820 100%); border: 2px dashed #c41e3a; border-radius: 8px 8px 0 0; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;"><p style="color: #c41e3a; font-weight: 700;">Q4</p></div>
+            <p style="font-size: 0.9rem; font-weight: 600; color: #1a1a1a;">€385K (proj)</p>
+            <p style="font-size: 0.8rem; color: #999;">5.2M people</p>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 1rem; margin-top: 1rem;">*Q3 is current (YTD). Q4 projected. Total 2025 target: €1.033M. 5-year growth: 287%.</p>
+      </div>
+    </section>
+  </div>
+</div>
+</x-dc>
+
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: &quot;1400px&quot;, &quot;height&quot;: &quot;900px&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
