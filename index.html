@@ -3,33 +3,57 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sudanese Social Volunteer</title>
+<title>Sudanese Social Volunteer - SSV</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Casko:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Casko:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #c41e3a 0%, #8b1428 100%); color: white; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+body { 
+  font-family: 'Inter', sans-serif; 
+  background: linear-gradient(135deg, #c41e3a 0%, #8b1428 100%); 
+  color: white; 
+  min-height: 100vh;
+  padding: 2rem;
+}
 
-.container { max-width: 900px; text-align: center; }
-h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; font-family: 'Casko', sans-serif; }
-p { font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.95; line-height: 1.7; }
+.container { max-width: 900px; margin: 0 auto; text-align: center; padding: 4rem 0; }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+h1 { 
+  font-size: 3.5rem; 
+  font-weight: 700; 
+  margin-bottom: 1rem; 
+  font-family: 'Casko', sans-serif;
+}
+
+p { 
+  font-size: 1.2rem; 
+  margin-bottom: 3rem; 
+  opacity: 0.95; 
+  line-height: 1.7;
+}
+
+.grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 2rem; 
+  margin-bottom: 2rem;
+}
 
 .card { 
   background: rgba(255,255,255,0.95); 
   color: #1a1a1a; 
   padding: 2.5rem; 
   border-radius: 16px; 
-  text-decoration: none; 
+  text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  cursor: pointer;
 }
 
 .card:hover { 
@@ -90,14 +114,14 @@ footer {
   <p>Transforming crisis into hope. Explore our work across Sudan and 18 countries.</p>
 
   <div class="grid">
-    <a href="Sudanese Social Volunteer v2.dc.html" class="card">
+    <a href="Sudanese Social Volunteer v2.dc.html" class="card" onclick="window.location.href='Sudanese Social Volunteer v2.dc.html'; return false;">
       <div class="card-icon"><i class="fas fa-heart"></i></div>
       <h2>Donate & Learn</h2>
       <p>Discover our 6 programs, meet the team, see our impact, and support our mission with a donation.</p>
       <div class="card-cta"><i class="fas fa-arrow-right"></i>View Site</div>
     </a>
 
-    <a href="Impact Dashboard.dc.html" class="card">
+    <a href="Impact Dashboard.dc.html" class="card" onclick="window.location.href='Impact Dashboard.dc.html'; return false;">
       <div class="card-icon"><i class="fas fa-chart-line"></i></div>
       <h2>Impact Dashboard</h2>
       <p>Real-time metrics, program performance, beneficiary stories, and quarterly growth data.</p>
@@ -107,7 +131,8 @@ footer {
 
   <footer>
     <p><strong>Sudanese Social Volunteer</strong><br>Registered nonprofit | BAMF certified | Independent audits published</p>
-    <p style="margin-top: 1rem; opacity: 0.6;">© 2026 SSV. All rights reserved.</p>
+    <p style="margin-top: 1.5rem; opacity: 0.6;">© 2026 SSV. All rights reserved.</p>
+    <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">Designed and developed by <strong>Amged Higazi</strong></p>
   </footer>
 </div>
 
