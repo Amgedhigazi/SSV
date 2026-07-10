@@ -57,20 +57,20 @@ body { font-family: 'Inter', sans-serif; color: #1a1a1a; background: linear-grad
       <div class="impact-row">
         <div class="metric-card" style="animation: fadeInUp 0.8s ease-out 0.1s both;">
           <p style="color: #999; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem;"><i class="fas fa-heart" style="color: #c41e3a; margin-right: 0.3rem;"></i>Total Lives Impacted</p>
-          <div class="big-number">38.2M</div>
-          <p class="big-label">people served across all programs</p>
+          <div class="big-number" data-dc-target="kpi-total_lives_impacted">38.2M</div>
+          <p class="big-label" data-dc-target="kpi-total_lives_impacted-label">people served across all programs</p>
         </div>
 
         <div class="metric-card" style="animation: fadeInUp 0.8s ease-out 0.2s both;">
           <p style="color: #999; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem;"><i class="fas fa-people-group" style="color: #c41e3a; margin-right: 0.3rem;"></i>Direct Beneficiaries</p>
-          <div class="big-number">1.2M</div>
-          <p class="big-label">individuals with direct contact & services</p>
+          <div class="big-number" data-dc-target="kpi-direct_beneficiaries">1.2M</div>
+          <p class="big-label" data-dc-target="kpi-direct_beneficiaries-label">individuals with direct contact & services</p>
         </div>
 
         <div class="metric-card" style="animation: fadeInUp 0.8s ease-out 0.3s both;">
           <p style="color: #999; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem;"><i class="fas fa-hand-holding-heart" style="color: #c41e3a; margin-right: 0.3rem;"></i>2025 Investment</p>
-          <div class="big-number">€648K</div>
-          <p class="big-label">deployed to on-ground programs (95%)</p>
+          <div class="big-number" data-dc-target="kpi-investment_2025">€648K</div>
+          <p class="big-label" data-dc-target="kpi-investment_2025-label">deployed to on-ground programs (95%)</p>
         </div>
       </div>
     </section>
@@ -291,5 +291,7 @@ class Component extends DCLogic {
   }
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="./data-bridge.js"></script>
 </body>
 </html>

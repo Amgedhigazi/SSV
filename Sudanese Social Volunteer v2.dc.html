@@ -148,7 +148,7 @@ button { border: none; cursor: pointer; font-family: inherit; }
       <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1rem; color: #1a1a1a; animation: fadeInUp 0.8s ease-out;"><i class="fas fa-users" style="margin-right: 0.75rem; color: #c41e3a;"></i>Our Team</h2>
       <p style="font-size: 1.1rem; color: #666; margin-bottom: 3rem; animation: fadeInUp 0.8s ease-out 0.1s both;">150+ passionate volunteers and staff members. Diverse backgrounds. Shared mission.</p>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+      <div data-dc-target="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
         <!-- Team Member 1 -->
         <div class="team-card" style="animation: fadeInUp 0.8s ease-out 0.1s both;">
           <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
@@ -358,36 +358,38 @@ button { border: none; cursor: pointer; font-family: inherit; }
       <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1rem; color: #1a1a1a; animation: fadeInUp 0.8s ease-out;"><i class="fas fa-images" style="margin-right: 0.75rem; color: #c41e3a;"></i>Project Galleries</h2>
       <p style="font-size: 1.1rem; color: #666; margin-bottom: 3rem; animation: fadeInUp 0.8s ease-out 0.1s both;">Visual stories from the field. Real impact. Real lives changed.</p>
 
-      <!-- Medical Gallery -->
-      <div style="margin-bottom: 4rem; animation: fadeInUp 0.8s ease-out 0.1s both;">
-        <h3 style="font-size: 1.5rem; font-weight: 600; color: #c41e3a; margin-bottom: 1.5rem;"><i class="fas fa-hospital" style="margin-right: 0.5rem;"></i>Emergency Medical Response</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-          <div class="gallery-image"><i class="fas fa-hospital"></i></div>
-          <div class="gallery-image"><i class="fas fa-user-nurse"></i></div>
-          <div class="gallery-image"><i class="fas fa-heart-pulse"></i></div>
-          <div class="gallery-image"><i class="fas fa-pills"></i></div>
+      <div data-dc-target="gallery-content">
+        <!-- Medical Gallery -->
+        <div style="margin-bottom: 4rem; animation: fadeInUp 0.8s ease-out 0.1s both;">
+          <h3 style="font-size: 1.5rem; font-weight: 600; color: #c41e3a; margin-bottom: 1.5rem;"><i class="fas fa-hospital" style="margin-right: 0.5rem;"></i>Emergency Medical Response</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div class="gallery-image"><i class="fas fa-hospital"></i></div>
+            <div class="gallery-image"><i class="fas fa-user-nurse"></i></div>
+            <div class="gallery-image"><i class="fas fa-heart-pulse"></i></div>
+            <div class="gallery-image"><i class="fas fa-pills"></i></div>
+          </div>
         </div>
-      </div>
 
-      <!-- Education Gallery -->
-      <div style="margin-bottom: 4rem; animation: fadeInUp 0.8s ease-out 0.2s both;">
-        <h3 style="font-size: 1.5rem; font-weight: 600; color: #c41e3a; margin-bottom: 1.5rem;"><i class="fas fa-book" style="margin-right: 0.5rem;"></i>Education & Vocational Training</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-          <div class="gallery-image"><i class="fas fa-chalkboard-user"></i></div>
-          <div class="gallery-image"><i class="fas fa-users"></i></div>
-          <div class="gallery-image"><i class="fas fa-tools"></i></div>
-          <div class="gallery-image"><i class="fas fa-book-open"></i></div>
+        <!-- Education Gallery -->
+        <div style="margin-bottom: 4rem; animation: fadeInUp 0.8s ease-out 0.2s both;">
+          <h3 style="font-size: 1.5rem; font-weight: 600; color: #c41e3a; margin-bottom: 1.5rem;"><i class="fas fa-book" style="margin-right: 0.5rem;"></i>Education & Vocational Training</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div class="gallery-image"><i class="fas fa-chalkboard-user"></i></div>
+            <div class="gallery-image"><i class="fas fa-users"></i></div>
+            <div class="gallery-image"><i class="fas fa-tools"></i></div>
+            <div class="gallery-image"><i class="fas fa-book-open"></i></div>
+          </div>
         </div>
-      </div>
 
-      <!-- WASH Gallery -->
-      <div style="animation: fadeInUp 0.8s ease-out 0.3s both;">
-        <h3 style="font-size: 1.5rem; font-weight: 600; color: #c41e3a; margin-bottom: 1.5rem;"><i class="fas fa-water" style="margin-right: 0.5rem;"></i>Water, Sanitation & Hygiene</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-          <div class="gallery-image"><i class="fas fa-faucet"></i></div>
-          <div class="gallery-image"><i class="fas fa-toilet"></i></div>
-          <div class="gallery-image"><i class="fas fa-shower"></i></div>
-          <div class="gallery-image"><i class="fas fa-hands"></i></div>
+        <!-- WASH Gallery -->
+        <div style="animation: fadeInUp 0.8s ease-out 0.3s both;">
+          <h3 style="font-size: 1.5rem; font-weight: 600; color: #c41e3a; margin-bottom: 1.5rem;"><i class="fas fa-water" style="margin-right: 0.5rem;"></i>Water, Sanitation & Hygiene</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div class="gallery-image"><i class="fas fa-faucet"></i></div>
+            <div class="gallery-image"><i class="fas fa-toilet"></i></div>
+            <div class="gallery-image"><i class="fas fa-shower"></i></div>
+            <div class="gallery-image"><i class="fas fa-hands"></i></div>
+          </div>
         </div>
       </div>
     </div>
@@ -399,7 +401,7 @@ button { border: none; cursor: pointer; font-family: inherit; }
       <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1rem; color: #1a1a1a; animation: fadeInUp 0.8s ease-out;"><i class="fas fa-file-pdf" style="margin-right: 0.75rem; color: #c41e3a;"></i>Reports & Publications</h2>
       <p style="font-size: 1.1rem; color: #666; margin-bottom: 3rem; animation: fadeInUp 0.8s ease-out 0.1s both;">Transparent impact reports. Research. Policy briefs. Available for download.</p>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+      <div data-dc-target="reports-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
         <!-- Report 1 -->
         <div class="publication-card" style="animation: fadeInUp 0.8s ease-out 0.1s both;">
           <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1rem;">
@@ -490,7 +492,7 @@ button { border: none; cursor: pointer; font-family: inherit; }
       <!-- Video Section -->
       <div style="margin-bottom: 4rem; animation: fadeInUp 0.8s ease-out 0.1s both;">
         <h3 style="font-size: 1.5rem; font-weight: 600; color: #c41e3a; margin-bottom: 1.5rem;"><i class="fas fa-film" style="margin-right: 0.5rem;"></i>Featured Videos</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div data-dc-target="media-videos-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
           <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
             <div class="video-thumbnail" style="background: linear-gradient(135deg, #c41e3a, #8b1428);"><i class="play-icon fas fa-play"></i></div>
             <div style="padding: 1.5rem;">
@@ -523,7 +525,7 @@ button { border: none; cursor: pointer; font-family: inherit; }
       <!-- Media Reviews -->
       <div style="animation: fadeInUp 0.8s ease-out 0.2s both;">
         <h3 style="font-size: 1.5rem; font-weight: 600; color: #c41e3a; margin-bottom: 1.5rem;"><i class="fas fa-newspaper" style="margin-right: 0.5rem;"></i>In The News</h3>
-        <div style="display: grid; gap: 1.5rem;">
+        <div data-dc-target="media-news-list" style="display: grid; gap: 1.5rem;">
           <div style="background: white; padding: 2rem; border-radius: 10px; border-left: 5px solid #c41e3a; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
             <div style="display: flex; align-items: start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem;">
               <h4 style="font-size: 1.1rem; font-weight: 600; color: #1a1a1a;">Sudanese Social Volunteer: A Lifeline in Crisis</h4>
@@ -615,7 +617,7 @@ button { border: none; cursor: pointer; font-family: inherit; }
       <!-- Featured Donors -->
       <div style="animation: fadeInUp 0.8s ease-out 0.4s both;">
         <h3 style="font-size: 1.5rem; font-weight: 600; color: #c41e3a; margin-bottom: 2rem;"><i class="fas fa-users-heart" style="margin-right: 0.5rem;"></i>Featured Supporters</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+        <div data-dc-target="partners-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
           <div style="background: white; padding: 1.5rem; border-radius: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
             <p style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏢</p>
             <h4 style="font-size: 1rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.25rem;">Boehringer Ingelheim</h4>
@@ -783,5 +785,7 @@ class Component extends DCLogic {
 }
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="./data-bridge.js"></script>
 </body>
 </html>
